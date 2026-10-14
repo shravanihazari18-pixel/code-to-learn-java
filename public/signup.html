@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account - Code to Learn Java</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8fafc;
+            color: #172554;
+        }
+
+        nav {
+            background: #172554;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #facc15;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        nav a:hover {
+            color: #facc15;
+        }
+
+        .container {
+            min-height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .signup-box {
+            width: 100%;
+            max-width: 450px;
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #172554;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #cbd5e1;
+            border-radius: 7px;
+            margin-bottom: 18px;
+            font-size: 15px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 7px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        #message {
+            margin-top: 18px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .login-link a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #172554;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">Code to Learn – Java</div>
+
+    <div>
+        <a href="index.html">Home</a>
+        <a href="learn.html">Learn</a>
+        <a href="practice.html">Practice</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="login.html">Login</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="signup-box">
+
+        <h1>Create Account</h1>
+
+        <p class="subtitle">
+            Start learning Java today
+        </p>
+
+        <form id="signupForm">
+
+            <label for="name">Full Name</label>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+                required
+            >
+
+            <label for="email">Email</label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+            >
+
+            <label for="password">Password</label>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Create a password"
+                required
+            >
+
+            <label for="confirmPassword">Confirm Password</label>
+
+            <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm your password"
+                required
+            >
+
+            <button type="submit">
+                Create Account
+            </button>
+
+        </form>
+
+        <div id="message"></div>
+
+        <div class="login-link">
+            Already have an account?
+            <a href="login.html">Login</a>
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 Code to Learn – Java</p>
+</footer>
+
+<script>
+    const signupForm = document.getElementById("signupForm");
+    const message = document.getElementById("message");
+
+    signupForm.addEventListener("submit", async function(event) {
+
+        event.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+        const confirmPassword =
+            document.getElementById("confirmPassword").value;
+
+        if (password !== confirmPassword) {
+            message.style.color = "#dc2626";
+            message.textContent = "Passwords do not match.";
+            return;
+        }
+
+        try {
+
+            const response = await fetch("/api/auth/signup", {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    name,
+                    email,
+                    password
+                })
+
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+
+                message.style.color = "#15803d";
+                message.textContent = data.message;
+
+                setTimeout(() => {
+                    window.location.href = "login.html";
+                }, 1200);
+
+            } else {
+
+                message.style.color = "#dc2626";
+                message.textContent = data.message;
+
+            }
+
+        } catch (error) {
+
+            message.style.color = "#dc2626";
+            message.textContent =
+                "Unable to connect to the server.";
+
+        }
+
+    });
+</script>
+
+</body>
+</html>

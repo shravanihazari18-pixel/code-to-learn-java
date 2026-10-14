@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Introduction to Java - Code to Learn</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f1f5f9;
+            color: #172554;
+        }
+
+        /* Navbar */
+        nav {
+            background: #172554;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #facc15;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        nav a:hover {
+            color: #facc15;
+        }
+
+        /* Main */
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        .lesson-header {
+            background: #2563eb;
+            color: white;
+            padding: 35px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+
+        .lesson-header h1 {
+            margin-bottom: 10px;
+        }
+
+        .lesson-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .lesson-card h2 {
+            margin-bottom: 15px;
+            color: #172554;
+        }
+
+        .lesson-card p {
+            line-height: 1.7;
+            color: #475569;
+            margin-bottom: 15px;
+        }
+
+        .lesson-card ul {
+            margin-left: 25px;
+            line-height: 2;
+            color: #475569;
+        }
+
+        /* Code */
+        pre {
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin-top: 15px;
+        }
+
+        /* Buttons */
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            padding: 12px 22px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        .back-btn {
+            background: #64748b;
+            color: white;
+        }
+
+        .complete-btn {
+            background: #16a34a;
+            color: white;
+        }
+
+        .back-btn:hover {
+            background: #475569;
+        }
+
+        .complete-btn:hover {
+            background: #15803d;
+        }
+
+        #completedMessage {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+            color: #16a34a;
+            display: none;
+        }
+
+        /* Footer */
+        footer {
+            background: #172554;
+            color: white;
+            text-align: center;
+            padding: 18px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 700px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav>
+
+        <div class="logo">
+            Code to <span>Learn</span> - Java
+        </div>
+
+        <div>
+            <a href="../index.html">Home</a>
+            <a href="../learn.html">Learn</a>
+            <a href="../practice.html">Practice</a>
+            <a href="../quiz.html">Quiz</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Lesson Content -->
+    <div class="container">
+
+        <div class="lesson-header">
+            <h1>Introduction to Java</h1>
+            <p>Lesson 1 • Beginner</p>
+        </div>
+
+
+        <div class="lesson-card">
+
+            <h2>What is Java?</h2>
+
+            <p>
+                Java is a popular programming language used to build
+                applications, websites, games, and many other software
+                systems.
+            </p>
+
+            <p>
+                Java was designed to be simple, secure, and
+                platform-independent.
+            </p>
+
+        </div>
+
+
+        <div class="lesson-card">
+
+            <h2>Why Learn Java?</h2>
+
+            <ul>
+                <li>Easy to learn for beginners</li>
+                <li>Object-oriented programming language</li>
+                <li>Works on different operating systems</li>
+                <li>Used in Android and enterprise applications</li>
+                <li>Large developer community</li>
+            </ul>
+
+        </div>
+
+
+        <div class="lesson-card">
+
+            <h2>Your First Java Program</h2>
+
+            <p>
+                Let's write a simple Java program that prints
+                "Hello World".
+            </p>
+
+            <pre>
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}
+            </pre>
+
+        </div>
+
+
+        <div class="lesson-card">
+
+            <h2>Understanding the Program</h2>
+
+            <p>
+                <strong>public class Main</strong> creates a class
+                called Main.
+            </p>
+
+            <p>
+                <strong>main()</strong> is the starting point of a
+                Java program.
+            </p>
+
+            <p>
+                <strong>System.out.println()</strong> prints text
+                on the screen.
+            </p>
+
+        </div>
+
+
+        <div class="lesson-card">
+
+            <h2>Quick Check</h2>
+
+            <p>
+                Which method is the starting point of a Java program?
+            </p>
+
+            <ul>
+                <li>A. start()</li>
+                <li>B. main()</li>
+                <li>C. run()</li>
+                <li>D. begin()</li>
+            </ul>
+
+        </div>
+
+
+        <div class="buttons">
+
+            <a href="../learn.html" class="btn back-btn">
+                ← Back to Lessons
+            </a>
+
+            <button class="btn complete-btn" onclick="completeLesson()">
+                ✓ Mark as Completed
+            </button>
+
+        </div>
+
+        <p id="completedMessage">
+            🎉 Lesson completed successfully!
+        </p>
+
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        © 2026 Code to Learn - Java | Learn. Practice. Succeed.
+    </footer>
+
+
+    <script>
+
+        function completeLesson() {
+
+            document.getElementById("completedMessage").style.display = "block";
+
+            localStorage.setItem("lesson1Completed", "true");
+
+        }
+
+    </script>
+
+</body>
+</html>

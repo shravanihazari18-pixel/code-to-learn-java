@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Java Quiz - CodeToLearn</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f7fb;
+    color: #222;
+}
+
+/* NAVBAR */
+
+nav {
+    height: 70px;
+    background: #172554;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 8%;
+}
+
+.logo {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #facc15;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: #facc15;
+}
+
+.login-btn {
+    background: #facc15;
+    color: #172554 !important;
+
+    padding: 10px 20px;
+    border-radius: 6px;
+
+    font-weight: bold;
+}
+
+
+/* HEADER */
+
+.page-header {
+    background: linear-gradient(
+        135deg,
+        #172554,
+        #2563eb
+    );
+
+    color: white;
+
+    text-align: center;
+
+    padding: 55px 20px;
+}
+
+.page-header h1 {
+    font-size: 42px;
+    margin-bottom: 12px;
+}
+
+.page-header h1 span {
+    color: #facc15;
+}
+
+.page-header p {
+    color: #e5e7eb;
+    font-size: 18px;
+}
+
+
+/* QUIZ CONTAINER */
+
+.quiz-container {
+    width: 85%;
+    max-width: 900px;
+
+    margin: 40px auto;
+}
+
+
+/* QUIZ TOP */
+
+.quiz-top {
+    background: white;
+
+    padding: 20px 25px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.08);
+
+    margin-bottom: 25px;
+}
+
+.quiz-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 15px;
+}
+
+.quiz-info h3 {
+    color: #172554;
+}
+
+.timer {
+    background: #fee2e2;
+
+    color: #991b1b;
+
+    padding: 8px 15px;
+
+    border-radius: 20px;
+
+    font-weight: bold;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+
+    background: #e5e7eb;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.progress {
+    width: 10%;
+    height: 100%;
+
+    background: #2563eb;
+
+    transition: 0.3s;
+}
+
+
+/* QUESTION CARD */
+
+.question-card {
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.08);
+}
+
+.question-number {
+    color: #2563eb;
+
+    font-weight: bold;
+
+    margin-bottom: 12px;
+}
+
+.question {
+    color: #172554;
+
+    font-size: 24px;
+
+    line-height: 1.5;
+
+    margin-bottom: 25px;
+}
+
+
+/* OPTIONS */
+
+.options {
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+.option {
+    border: 2px solid #e5e7eb;
+
+    padding: 16px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.option:hover {
+    border-color: #2563eb;
+
+    background: #eff6ff;
+}
+
+.option.selected {
+    border-color: #2563eb;
+
+    background: #dbeafe;
+}
+
+.option input {
+    accent-color: #2563eb;
+
+    width: 18px;
+    height: 18px;
+}
+
+
+/* BUTTONS */
+
+.button-area {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 30px;
+}
+
+.next-btn,
+.submit-btn {
+
+    border: none;
+
+    padding: 13px 25px;
+
+    border-radius: 6px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.next-btn {
+    background: #2563eb;
+    color: white;
+}
+
+.next-btn:hover {
+    background: #172554;
+}
+
+.submit-btn {
+    background: #16a34a;
+    color: white;
+}
+
+.submit-btn:hover {
+    background: #15803d;
+}
+
+
+/* RESULT */
+
+.result {
+    display: none;
+
+    background: white;
+
+    padding: 45px;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.08);
+}
+
+.result-icon {
+    font-size: 60px;
+
+    margin-bottom: 15px;
+}
+
+.result h2 {
+    color: #172554;
+
+    font-size: 32px;
+
+    margin-bottom: 15px;
+}
+
+.score {
+    font-size: 25px;
+
+    color: #2563eb;
+
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+
+.result p {
+    color: #666;
+
+    margin-bottom: 25px;
+}
+
+.restart-btn {
+    background: #2563eb;
+
+    color: white;
+
+    border: none;
+
+    padding: 13px 25px;
+
+    border-radius: 6px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/* FOOTER */
+
+footer {
+    background: #172554;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 25px;
+
+    margin-top: 50px;
+}
+
+footer p {
+    margin: 5px;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+
+    nav {
+        padding: 0 5%;
+    }
+
+    nav ul {
+        gap: 10px;
+    }
+
+    nav ul li:nth-child(2),
+    nav ul li:nth-child(3),
+    nav ul li:nth-child(4) {
+        display: none;
+    }
+
+    .page-header h1 {
+        font-size: 34px;
+    }
+
+    .quiz-container {
+        width: 92%;
+    }
+
+    .question-card {
+        padding: 25px;
+    }
+
+    .question {
+        font-size: 20px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+<div class="logo">
+Code<span>ToLearn</span>
+</div>
+
+<ul>
+
+<li>
+<a href="index.html">Home</a>
+</li>
+
+<li>
+<a href="learn.html">Learn</a>
+</li>
+
+<li>
+<a href="practice.html">Practice</a>
+</li>
+
+<li>
+<a href="quiz.html">Quiz</a>
+</li>
+
+<li>
+<a href="login.html"
+class="login-btn">
+Login
+</a>
+</li>
+
+</ul>
+
+</nav>
+
+
+<!-- HEADER -->
+
+<section class="page-header">
+
+<h1>
+Java <span>Quiz</span>
+</h1>
+
+<p>
+Test your Java knowledge and check your programming skills.
+</p>
+
+</section>
+
+
+<!-- QUIZ -->
+
+<div class="quiz-container">
+
+
+<!-- QUIZ INFORMATION -->
+
+<div class="quiz-top">
+
+<div class="quiz-info">
+
+<h3 id="questionCounter">
+Question 1 of 10
+</h3>
+
+<div class="timer">
+⏱ <span id="timer">05:00</span>
+</div>
+
+</div>
+
+
+<div class="progress-bar">
+
+<div class="progress"
+id="progress">
+</div>
+
+</div>
+
+</div>
+
+
+<!-- QUESTION -->
+
+<div class="question-card"
+id="quizCard">
+
+<div class="question-number"
+id="questionNumber">
+Question 1
+</div>
+
+<div class="question"
+id="question">
+</div>
+
+
+<div class="options"
+id="options">
+</div>
+
+
+<div class="button-area">
+
+<button class="next-btn"
+id="nextBtn"
+onclick="nextQuestion()">
+
+Next Question →
+
+</button>
+
+<button class="submit-btn"
+id="submitBtn"
+onclick="submitQuiz()"
+style="display:none;">
+
+Submit Quiz
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- RESULT -->
+
+<div class="result"
+id="result">
+
+<div class="result-icon">
+🏆
+</div>
+
+<h2>
+Quiz Completed!
+</h2>
+
+<div class="score"
+id="score">
+</div>
+
+<p id="resultMessage">
+</p>
+
+<button class="restart-btn"
+onclick="restartQuiz()">
+
+Try Again
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+© 2026 CodeToLearn – Java Learning Platform
+</p>
+
+<p>
+Learn Java • Practice Coding • Build Your Skills
+</p>
+
+</footer>
+
+
+<script>
+
+
+/* QUESTIONS */
+
+const questions = [
+
+{
+question:
+"Which keyword is used to create a class in Java?",
+
+options: [
+"class",
+"Class",
+"define",
+"struct"
+],
+
+answer: 0
+},
+
+{
+question:
+"Which method is the starting point of a Java program?",
+
+options: [
+"start()",
+"main()",
+"run()",
+"execute()"
+],
+
+answer: 1
+},
+
+{
+question:
+"Which data type is used to store whole numbers?",
+
+options: [
+"float",
+"String",
+"int",
+"boolean"
+],
+
+answer: 2
+},
+
+{
+question:
+"Which symbol is used to end a statement in Java?",
+
+options: [
+".",
+":",
+";",
+","
+],
+
+answer: 2
+},
+
+{
+question:
+"Which keyword is used to inherit a class?",
+
+options: [
+"implements",
+"extends",
+"inherits",
+"super"
+],
+
+answer: 1
+},
+
+{
+question:
+"Which collection does not allow duplicate elements?",
+
+options: [
+"ArrayList",
+"HashSet",
+"LinkedList",
+"Vector"
+],
+
+answer: 1
+},
+
+{
+question:
+"Which keyword is used to create an object?",
+
+options: [
+"object",
+"create",
+"new",
+"class"
+],
+
+answer: 2
+},
+
+{
+question:
+"Which block is used to handle exceptions?",
+
+options: [
+"if-else",
+"try-catch",
+"for-loop",
+"switch"
+],
+
+answer: 1
+},
+
+{
+question:
+"Which of these is NOT a primitive data type in Java?",
+
+options: [
+"int",
+"double",
+"boolean",
+"String"
+],
+
+answer: 3
+},
+
+{
+question:
+"Which keyword prevents a variable from being changed?",
+
+options: [
+"static",
+"constant",
+"final",
+"fixed"
+],
+
+answer: 2
+}
+
+];
+
+
+let currentQuestion = 0;
+
+let score = 0;
+
+let selectedAnswer = null;
+
+let timeLeft = 300;
+
+let timerInterval;
+
+
+/* LOAD QUESTION */
+
+function loadQuestion() {
+
+const question =
+questions[currentQuestion];
+
+
+document.getElementById("questionNumber")
+.textContent =
+"Question " +
+(currentQuestion + 1);
+
+
+document.getElementById("questionCounter")
+.textContent =
+"Question " +
+(currentQuestion + 1) +
+" of " +
+questions.length;
+
+
+document.getElementById("question")
+.textContent =
+question.question;
+
+
+const options =
+document.getElementById("options");
+
+
+options.innerHTML = "";
+
+
+question.options.forEach(
+function(option, index) {
+
+const label =
+document.createElement("label");
+
+label.className =
+"option";
+
+
+label.innerHTML = `
+
+<input
+type="radio"
+name="answer"
+value="${index}"
+>
+
+<span>${option}</span>
+
+`;
+
+
+label.onclick =
+function() {
+
+selectedAnswer = index;
+
+
+document.querySelectorAll(
+".option"
+).forEach(
+function(item) {
+
+item.classList.remove(
+"selected"
+);
+
+});
+
+
+label.classList.add(
+"selected"
+);
+
+};
+
+
+options.appendChild(label);
+
+});
+
+
+/* PROGRESS */
+
+const percentage =
+((currentQuestion + 1) /
+questions.length) * 100;
+
+
+document.getElementById("progress")
+.style.width =
+percentage + "%";
+
+
+/* BUTTON */
+
+if (
+currentQuestion ===
+questions.length - 1
+) {
+
+document.getElementById("nextBtn")
+.style.display = "none";
+
+document.getElementById("submitBtn")
+.style.display = "block";
+
+}
+
+else {
+
+document.getElementById("nextBtn")
+.style.display = "block";
+
+document.getElementById("submitBtn")
+.style.display = "none";
+
+}
+
+
+selectedAnswer = null;
+
+}
+
+
+/* NEXT QUESTION */
+
+function nextQuestion() {
+
+if (selectedAnswer === null) {
+
+alert(
+"Please select an answer."
+);
+
+return;
+
+}
+
+
+if (
+selectedAnswer ===
+questions[currentQuestion].answer
+) {
+
+score++;
+
+}
+
+
+currentQuestion++;
+
+loadQuestion();
+
+}
+
+
+/* SUBMIT QUIZ */
+
+function submitQuiz() {
+
+if (selectedAnswer === null) {
+
+alert(
+"Please select an answer."
+);
+
+return;
+
+}
+
+
+if (
+selectedAnswer ===
+questions[currentQuestion].answer
+) {
+
+score++;
+
+}
+
+
+clearInterval(timerInterval);
+
+
+document.getElementById("quizCard")
+.style.display = "none";
+
+
+document.getElementById("result")
+.style.display = "block";
+
+
+document.getElementById("score")
+.textContent =
+"Your Score: " +
+score +
+" / " +
+questions.length;
+
+
+let message;
+
+
+if (score >= 9) {
+
+message =
+"Excellent! You have a strong understanding of Java.";
+
+}
+
+else if (score >= 7) {
+
+message =
+"Great job! Keep practicing to become even better.";
+
+}
+
+else if (score >= 5) {
+
+message =
+"Good attempt! Review the lessons and try again.";
+
+}
+
+else {
+
+message =
+"Keep learning! Practice the basics and try the quiz again.";
+
+}
+
+
+document.getElementById("resultMessage")
+.textContent =
+message;
+
+}
+
+
+/* TIMER */
+
+function startTimer() {
+
+timerInterval =
+setInterval(
+function() {
+
+let minutes =
+Math.floor(timeLeft / 60);
+
+let seconds =
+timeLeft % 60;
+
+
+document.getElementById("timer")
+.textContent =
+
+String(minutes)
+.padStart(2, "0")
++
+":" +
+String(seconds)
+.padStart(2, "0");
+
+
+if (timeLeft <= 0) {
+
+clearInterval(timerInterval);
+
+submitQuiz();
+
+}
+
+
+timeLeft--;
+
+},
+1000
+);
+
+}
+
+
+/* RESTART */
+
+function restartQuiz() {
+
+currentQuestion = 0;
+
+score = 0;
+
+selectedAnswer = null;
+
+timeLeft = 300;
+
+
+document.getElementById("quizCard")
+.style.display = "block";
+
+
+document.getElementById("result")
+.style.display = "none";
+
+
+clearInterval(timerInterval);
+
+loadQuestion();
+
+startTimer();
+
+}
+
+
+/* START QUIZ */
+
+loadQuestion();
+
+startTimer();
+
+
+</script>
+
+
+</body>
+
+</html>

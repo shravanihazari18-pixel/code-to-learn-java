@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Java - Code to Learn</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f8fafc;
+            color: #172554;
+        }
+
+        nav {
+            background: #172554;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h2 {
+            color: #facc15;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #facc15;
+        }
+
+        .hero {
+            background: #172554;
+            color: white;
+            text-align: center;
+            padding: 55px 20px;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        .progress-box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .progress-box h3 {
+            margin-bottom: 12px;
+        }
+
+        .progress {
+            width: 100%;
+            height: 12px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: #2563eb;
+        }
+
+        .lesson {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .lesson-number {
+            color: #2563eb;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .lesson h2 {
+            margin-bottom: 8px;
+        }
+
+        .lesson p {
+            color: #64748b;
+        }
+
+        .difficulty {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 12px;
+            background: #dbeafe;
+            color: #1d4ed8;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .start-btn {
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .start-btn:hover {
+            background: #1d4ed8;
+        }
+
+        footer {
+            background: #172554;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 700px) {
+            .lesson {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <h2>Code to Learn</h2>
+
+        <div>
+            <a href="index.html">Home</a>
+            <a href="learn.html">Learn</a>
+            <a href="practice.html">Practice</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="login.html">Login</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Learn Java</h1>
+        <p>Learn Java step by step with simple lessons.</p>
+    </section>
+
+    <div class="container">
+
+        <div class="progress-box">
+            <h3>Your Progress</h3>
+
+            <div class="progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <p id="progressText" style="margin-top:10px;">
+                0 of 5 lessons completed
+            </p>
+        </div>
+
+        <!-- Lesson 1 -->
+        <div class="lesson">
+            <div>
+                <div class="lesson-number">LESSON 1</div>
+                <h2>Introduction to Java</h2>
+                <p>Learn what Java is, why it is used, and write your first Java program.</p>
+                <span class="difficulty">Beginner</span>
+            </div>
+
+            <a href="lessons/introduction.html" class="start-btn">
+                Start Lesson →
+            </a>
+        </div>
+
+        <!-- Lesson 2 -->
+        <div class="lesson">
+            <div>
+                <div class="lesson-number">LESSON 2</div>
+                <h2>Variables & Data Types</h2>
+                <p>Learn variables, numbers, text, characters, and boolean values.</p>
+                <span class="difficulty">Beginner</span>
+            </div>
+
+            <a href="lessons/variables.html" class="start-btn">
+                Start Lesson →
+            </a>
+        </div>
+
+        <!-- Lesson 3 -->
+        <div class="lesson">
+            <div>
+                <div class="lesson-number">LESSON 3</div>
+                <h2>Conditional Statements</h2>
+                <p>Learn how to make decisions using if, else if, and else.</p>
+                <span class="difficulty">Beginner</span>
+            </div>
+
+            <a href="lessons/conditions.html" class="start-btn">
+                Start Lesson →
+            </a>
+        </div>
+
+        <!-- Lesson 4 -->
+        <div class="lesson">
+            <div>
+                <div class="lesson-number">LESSON 4</div>
+                <h2>Loops</h2>
+                <p>Learn for, while, and do-while loops to repeat Java code.</p>
+                <span class="difficulty">Intermediate</span>
+            </div>
+
+            <a href="lessons/loops.html" class="start-btn">
+                Start Lesson →
+            </a>
+        </div>
+
+        <!-- Lesson 5 -->
+        <div class="lesson">
+            <div>
+                <div class="lesson-number">LESSON 5</div>
+                <h2>Classes & Objects</h2>
+                <p>Understand the basics of object-oriented programming in Java.</p>
+                <span class="difficulty">Intermediate</span>
+            </div>
+
+            <a href="lessons/classes.html" class="start-btn">
+                Start Lesson →
+            </a>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 Code to Learn – Java</p>
+    </footer>
+
+    <script>
+        function updateProgress() {
+            let completed = 0;
+
+            if (localStorage.getItem("lesson1Completed") === "true") {
+                completed++;
+            }
+
+            if (localStorage.getItem("lesson2Completed") === "true") {
+                completed++;
+            }
+
+            if (localStorage.getItem("lesson3Completed") === "true") {
+                completed++;
+            }
+
+            if (localStorage.getItem("lesson4Completed") === "true") {
+                completed++;
+            }
+
+            if (localStorage.getItem("lesson5Completed") === "true") {
+                completed++;
+            }
+
+            const percentage = (completed / 5) * 100;
+
+            document.getElementById("progressBar").style.width =
+                percentage + "%";
+
+            document.getElementById("progressText").textContent =
+                completed + " of 5 lessons completed";
+        }
+
+        updateProgress();
+    </script>
+
+</body>
+</html>

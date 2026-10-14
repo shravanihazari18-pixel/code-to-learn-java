@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loops - Code to Learn Java</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#f1f5f9;color:#172554}
+nav{background:#172554;color:white;padding:18px 8%;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:24px;font-weight:bold}.logo span{color:#facc15}
+nav a{color:white;text-decoration:none;margin-left:20px}
+.container{width:90%;max-width:1000px;margin:40px auto}
+.header{background:#2563eb;color:white;padding:35px;border-radius:15px;margin-bottom:25px}
+.card{background:white;padding:30px;border-radius:15px;margin-bottom:25px;box-shadow:0 5px 15px rgba(0,0,0,.08)}
+.card h2{margin-bottom:15px}.card p{color:#475569;line-height:1.7;margin-bottom:15px}
+.card ul{margin-left:25px;line-height:2;color:#475569}
+pre{background:#0f172a;color:#e2e8f0;padding:20px;border-radius:10px;overflow-x:auto}
+.buttons{display:flex;justify-content:space-between;gap:10px;margin-top:25px}
+.btn{padding:12px 20px;border-radius:8px;text-decoration:none;border:0;font-weight:bold;cursor:pointer}
+.back{background:#64748b;color:white}.complete{background:#16a34a;color:white}.next{background:#2563eb;color:white}
+#msg{display:none;text-align:center;color:#16a34a;font-weight:bold;margin-top:20px}
+footer{background:#172554;color:white;text-align:center;padding:18px;margin-top:50px}
+@media(max-width:700px){nav{flex-direction:column;gap:15px}.buttons{flex-direction:column}.btn{text-align:center}}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="logo">Code to <span>Learn</span> - Java</div>
+<div>
+<a href="../index.html">Home</a><a href="../learn.html">Learn</a>
+<a href="../practice.html">Practice</a><a href="../quiz.html">Quiz</a>
+<a href="../login.html">Login</a>
+</div>
+</nav>
+
+<div class="container">
+
+<div class="header">
+<h1>Loops</h1>
+<p>Lesson 5 • Beginner</p>
+</div>
+
+<div class="card">
+<h2>What is a Loop?</h2>
+<p>A loop repeats a block of code multiple times.</p>
+</div>
+
+<div class="card">
+<h2>Types of Loops</h2>
+<ul>
+<li>for loop</li>
+<li>while loop</li>
+<li>do-while loop</li>
+<li>Enhanced for loop</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>for Loop Example</h2>
+<pre>
+public class Main {
+    public static void main(String[] args) {
+
+        for (int i = 1; i <= 5; i++) {
+            System.out.println(i);
+        }
+    }
+}</pre>
+</div>
+
+<div class="card">
+<h2>Quick Check</h2>
+<p>Which loop is commonly used when the number of repetitions is known?</p>
+<ul>
+<li>A. for</li>
+<li>B. if</li>
+<li>C. switch</li>
+<li>D. catch</li>
+</ul>
+<p><strong>Answer: A. for</strong></p>
+</div>
+
+<div class="buttons">
+<a href="../learn.html" class="btn back">← Back</a>
+<button onclick="completeLesson()" class="btn complete">✓ Completed</button>
+<a href="arrays.html" class="btn next">Next Lesson →</a>
+</div>
+
+<p id="msg">🎉 Lesson 5 completed!</p>
+
+</div>
+
+<footer>© 2026 Code to Learn - Java | Learn. Practice. Succeed.</footer>
+
+<script>
+function completeLesson(){
+document.getElementById("msg").style.display="block";
+localStorage.setItem("lesson5Completed","true");
+}
+</script>
+
+</body>
+</html>

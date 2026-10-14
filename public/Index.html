@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Code to Learn - Java</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fb;
+            color: #222;
+        }
+
+        /* Navbar */
+        nav {
+            height: 70px;
+            background-color: #172554;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+        }
+
+        .logo {
+            color: white;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #facc15;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav ul li a:hover {
+            color: #facc15;
+        }
+
+        .login-btn {
+            background-color: #facc15;
+            color: #172554 !important;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 8%;
+            background: linear-gradient(135deg, #172554, #2563eb);
+            color: white;
+        }
+
+        .hero-content {
+            width: 55%;
+        }
+
+        .hero-content h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            color: #facc15;
+        }
+
+        .hero-content p {
+            font-size: 19px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            color: #e5e7eb;
+        }
+
+        .start-btn {
+            display: inline-block;
+            background-color: #facc15;
+            color: #172554;
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 7px;
+            font-size: 17px;
+            font-weight: bold;
+            margin-right: 12px;
+        }
+
+        .start-btn:hover {
+            background-color: #fde68a;
+        }
+
+        .explore-btn {
+            display: inline-block;
+            border: 2px solid white;
+            color: white;
+            padding: 12px 26px;
+            text-decoration: none;
+            border-radius: 7px;
+            font-size: 17px;
+        }
+
+        .explore-btn:hover {
+            background-color: white;
+            color: #172554;
+        }
+
+        /* Java Card */
+        .java-card {
+            width: 330px;
+            height: 330px;
+            background-color: white;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+
+        .java-logo {
+            width: 120px;
+            height: 120px;
+            background-color: #ef4444;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 45px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .java-card h2 {
+            color: #172554;
+            margin-bottom: 10px;
+        }
+
+        .java-card p {
+            color: #666;
+        }
+
+        /* Features */
+        .features {
+            padding: 70px 8%;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 35px;
+            color: #172554;
+            margin-bottom: 10px;
+        }
+
+        .section-text {
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .feature-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .feature-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            color: #172554;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Topics */
+        .topics {
+            background-color: #eaf0ff;
+            padding: 70px 8%;
+            text-align: center;
+        }
+
+        .topics h2 {
+            color: #172554;
+            font-size: 35px;
+            margin-bottom: 35px;
+        }
+
+        .topic-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .topic {
+            background-color: white;
+            padding: 15px 25px;
+            border-radius: 25px;
+            color: #172554;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #172554;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            nav ul {
+                gap: 10px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 50px;
+            }
+
+            .hero-content {
+                width: 100%;
+            }
+
+            .hero-content h1 {
+                font-size: 38px;
+            }
+
+            .java-card {
+                width: 280px;
+                height: 280px;
+            }
+
+            .feature-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">
+            Code<span>ToLearn</span>
+        </div>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="learn.html">Learn</a></li>
+            <li><a href="practice.html">Practice</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li>
+                <a href="login.html" class="login-btn">Login</a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Learn <span>Java</span><br>
+                The Easy Way
+            </h1>
+
+            <p>
+                Welcome to CodeToLearn, a student-friendly platform
+                designed to help you learn Java programming through
+                simple lessons, coding practice, and interactive quizzes.
+            </p>
+
+            <a href="learn.html" class="start-btn">
+                Start Learning
+            </a>
+
+            <a href="practice.html" class="explore-btn">
+                Practice Java
+            </a>
+
+        </div>
+
+
+        <div class="java-card">
+
+            <div class="java-logo">
+                J
+            </div>
+
+            <h2>Java Programming</h2>
+
+            <p>Learn • Practice • Improve</p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Features Section -->
+    <section class="features">
+
+        <h2>Why Learn With Us?</h2>
+
+        <p class="section-text">
+            Everything you need to become confident in Java programming.
+        </p>
+
+        <div class="feature-container">
+
+            <div class="feature-card">
+
+                <div class="feature-icon">📚</div>
+
+                <h3>Easy Lessons</h3>
+
+                <p>
+                    Learn Java concepts step-by-step with simple
+                    explanations and examples.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">💻</div>
+
+                <h3>Practice Coding</h3>
+
+                <p>
+                    Write Java programs and practice programming
+                    problems to improve your coding skills.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">🏆</div>
+
+                <h3>Take Quizzes</h3>
+
+                <p>
+                    Test your Java knowledge with interactive quizzes
+                    and track your learning progress.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Topics Section -->
+    <section class="topics">
+
+        <h2>What You'll Learn</h2>
+
+        <div class="topic-container">
+
+            <div class="topic">Java Basics</div>
+
+            <div class="topic">Variables</div>
+
+            <div class="topic">Loops</div>
+
+            <div class="topic">Arrays</div>
+
+            <div class="topic">OOP</div>
+
+            <div class="topic">Inheritance</div>
+
+            <div class="topic">Polymorphism</div>
+
+            <div class="topic">Collections</div>
+
+            <div class="topic">Exception Handling</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 CodeToLearn – Java Learning Platform
+        </p>
+
+        <p>
+            Learn Java • Practice Coding • Build Your Skills
+        </p>
+
+    </footer>
+
+
+</body>
+</html>

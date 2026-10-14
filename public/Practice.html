@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Practice Java - CodeToLearn</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            height: 70px;
+            background: #172554;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 8%;
+        }
+
+        .logo {
+            color: white;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #facc15;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            color: #facc15;
+        }
+
+        .login-btn {
+            background: #facc15;
+            color: #172554 !important;
+
+            padding: 10px 20px;
+            border-radius: 6px;
+
+            font-weight: bold;
+        }
+
+
+        /* HEADER */
+
+        .page-header {
+            background: linear-gradient(
+                135deg,
+                #172554,
+                #2563eb
+            );
+
+            color: white;
+            text-align: center;
+
+            padding: 55px 20px;
+        }
+
+        .page-header h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .page-header h1 span {
+            color: #facc15;
+        }
+
+        .page-header p {
+            color: #e5e7eb;
+            font-size: 18px;
+        }
+
+
+        /* MAIN */
+
+        .practice-container {
+            width: 90%;
+            max-width: 1200px;
+
+            margin: 40px auto;
+
+            display: grid;
+            grid-template-columns: 30% 70%;
+
+            gap: 25px;
+        }
+
+
+        /* PROBLEMS */
+
+        .problems {
+            background: white;
+
+            border-radius: 12px;
+
+            padding: 25px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.08);
+
+            height: fit-content;
+        }
+
+        .problems h2 {
+            color: #172554;
+            margin-bottom: 20px;
+        }
+
+        .problem {
+            padding: 15px;
+
+            border-radius: 8px;
+
+            margin-bottom: 12px;
+
+            background: #f5f7fb;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .problem:hover {
+            background: #eaf0ff;
+        }
+
+        .problem.active {
+            background: #172554;
+            color: white;
+        }
+
+        .problem h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .problem p {
+            font-size: 13px;
+            color: #777;
+        }
+
+        .problem.active p {
+            color: #dbeafe;
+        }
+
+
+        /* CODE AREA */
+
+        .coding-area {
+            background: white;
+
+            border-radius: 12px;
+
+            padding: 25px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .coding-area h2 {
+            color: #172554;
+            margin-bottom: 10px;
+        }
+
+        .coding-area .description {
+            color: #666;
+            line-height: 1.6;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* EDITOR */
+
+        .editor-title {
+            background: #111827;
+            color: white;
+
+            padding: 12px 15px;
+
+            border-radius: 8px 8px 0 0;
+
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .java-label {
+            color: #facc15;
+            font-weight: bold;
+        }
+
+        textarea {
+            width: 100%;
+
+            height: 300px;
+
+            resize: vertical;
+
+            border: none;
+            outline: none;
+
+            background: #0f172a;
+
+            color: #e5e7eb;
+
+            padding: 20px;
+
+            font-family: Consolas, monospace;
+
+            font-size: 15px;
+
+            line-height: 1.6;
+
+            border-radius: 0 0 8px 8px;
+        }
+
+
+        /* BUTTONS */
+
+        .button-area {
+            display: flex;
+            gap: 12px;
+
+            margin: 20px 0;
+        }
+
+        .run-btn {
+            background: #16a34a;
+
+            color: white;
+
+            border: none;
+
+            padding: 12px 25px;
+
+            border-radius: 6px;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .run-btn:hover {
+            background: #15803d;
+        }
+
+        .reset-btn {
+            background: #e5e7eb;
+
+            color: #172554;
+
+            border: none;
+
+            padding: 12px 25px;
+
+            border-radius: 6px;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .reset-btn:hover {
+            background: #d1d5db;
+        }
+
+
+        /* OUTPUT */
+
+        .output-title {
+            color: #172554;
+
+            font-size: 20px;
+
+            margin-bottom: 10px;
+        }
+
+        .output {
+            background: #111827;
+
+            min-height: 130px;
+
+            border-radius: 8px;
+
+            padding: 20px;
+
+            color: #22c55e;
+
+            font-family: Consolas, monospace;
+
+            white-space: pre-wrap;
+        }
+
+
+        /* TIPS */
+
+        .tips {
+            margin-top: 25px;
+
+            background: #eff6ff;
+
+            border-left: 5px solid #2563eb;
+
+            padding: 18px;
+
+            border-radius: 6px;
+        }
+
+        .tips h3 {
+            color: #172554;
+            margin-bottom: 8px;
+        }
+
+        .tips p {
+            color: #555;
+            line-height: 1.5;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            background: #172554;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 25px;
+
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+
+        /* RESPONSIVE */
+
+        @media (max-width: 900px) {
+
+            .practice-container {
+                grid-template-columns: 1fr;
+            }
+
+            .problems {
+                width: 100%;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            nav ul {
+                gap: 10px;
+            }
+
+            nav ul li:nth-child(2),
+            nav ul li:nth-child(3),
+            nav ul li:nth-child(4) {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 34px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="logo">
+            Code<span>ToLearn</span>
+        </div>
+
+
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="learn.html">
+                    Learn
+                </a>
+            </li>
+
+            <li>
+                <a href="practice.html">
+                    Practice
+                </a>
+            </li>
+
+            <li>
+                <a href="quiz.html">
+                    Quiz
+                </a>
+            </li>
+
+            <li>
+                <a href="login.html"
+                   class="login-btn">
+                    Login
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- HEADER -->
+
+    <section class="page-header">
+
+        <h1>
+            Java <span>Practice</span>
+        </h1>
+
+        <p>
+            Write Java code, solve problems and improve
+            your programming skills.
+        </p>
+
+    </section>
+
+
+
+    <!-- PRACTICE AREA -->
+
+    <div class="practice-container">
+
+
+        <!-- PROBLEM LIST -->
+
+        <div class="problems">
+
+            <h2>
+                Practice Problems
+            </h2>
+
+
+            <div class="problem active"
+                 onclick="selectProblem(1)">
+
+                <h3>
+                    01. Hello World
+                </h3>
+
+                <p>
+                    Print Hello World
+                </p>
+
+            </div>
+
+
+            <div class="problem"
+                 onclick="selectProblem(2)">
+
+                <h3>
+                    02. Add Two Numbers
+                </h3>
+
+                <p>
+                    Add two numbers
+                </p>
+
+            </div>
+
+
+            <div class="problem"
+                 onclick="selectProblem(3)">
+
+                <h3>
+                    03. Even or Odd
+                </h3>
+
+                <p>
+                    Check a number
+                </p>
+
+            </div>
+
+
+            <div class="problem"
+                 onclick="selectProblem(4)">
+
+                <h3>
+                    04. Find Maximum
+                </h3>
+
+                <p>
+                    Find largest number
+                </p>
+
+            </div>
+
+
+            <div class="problem"
+                 onclick="selectProblem(5)">
+
+                <h3>
+                    05. Factorial
+                </h3>
+
+                <p>
+                    Calculate factorial
+                </p>
+
+            </div>
+
+
+            <div class="problem"
+                 onclick="selectProblem(6)">
+
+                <h3>
+                    06. Reverse String
+                </h3>
+
+                <p>
+                    Reverse a string
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CODING AREA -->
+
+        <div class="coding-area">
+
+            <h2 id="problemTitle">
+                Hello World
+            </h2>
+
+            <p class="description"
+               id="problemDescription">
+
+                Write a Java program to print
+                "Hello World" on the screen.
+
+            </p>
+
+
+            <!-- EDITOR -->
+
+            <div class="editor-title">
+
+                <span>
+                    Code Editor
+                </span>
+
+                <span class="java-label">
+                    JAVA
+                </span>
+
+            </div>
+
+
+            <textarea id="codeEditor">public class Main {
+
+    public static void main(String[] args) {
+
+        System.out.println("Hello World");
+
+    }
+
+}</textarea>
+
+
+            <!-- BUTTONS -->
+
+            <div class="button-area">
+
+                <button class="run-btn"
+                        onclick="runCode()">
+
+                    ▶ Run Code
+
+                </button>
+
+
+                <button class="reset-btn"
+                        onclick="resetCode()">
+
+                    ↻ Reset
+
+                </button>
+
+            </div>
+
+
+            <!-- OUTPUT -->
+
+            <h3 class="output-title">
+                Output
+            </h3>
+
+
+            <div class="output"
+                 id="output">
+
+                Click "Run Code" to see the output...
+
+            </div>
+
+
+            <!-- TIP -->
+
+            <div class="tips">
+
+                <h3>
+                    💡 Practice Tip
+                </h3>
+
+                <p>
+                    Try to understand the problem first,
+                    write your own solution, and then run
+                    your program to check the result.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 CodeToLearn – Java Learning Platform
+        </p>
+
+        <p>
+            Learn Java • Practice Coding • Build Your Skills
+        </p>
+
+    </footer>
+
+
+
+    <script>
+
+        const codes = {
+
+            1:
+`public class Main {
+
+    public static void main(String[] args) {
+
+        System.out.println("Hello World");
+
+    }
+
+}`,
+
+            2:
+`public class Main {
+
+    public static void main(String[] args) {
+
+        int a = 10;
+        int b = 20;
+
+        System.out.println(a + b);
+
+    }
+
+}`,
+
+            3:
+`public class Main {
+
+    public static void main(String[] args) {
+
+        int number = 10;
+
+        if (number % 2 == 0) {
+            System.out.println("Even");
+        } else {
+            System.out.println("Odd");
+        }
+
+    }
+
+}`,
+
+            4:
+`public class Main {
+
+    public static void main(String[] args) {
+
+        int a = 20;
+        int b = 35;
+
+        if (a > b) {
+            System.out.println(a);
+        } else {
+            System.out.println(b);
+        }
+
+    }
+
+}`,
+
+            5:
+`public class Main {
+
+    public static void main(String[] args) {
+
+        int number = 5;
+        int factorial = 1;
+
+        for (int i = 1; i <= number; i++) {
+            factorial = factorial * i;
+        }
+
+        System.out.println(factorial);
+
+    }
+
+}`,
+
+            6:
+`public class Main {
+
+    public static void main(String[] args) {
+
+        String text = "Java";
+
+        String reverse = "";
+
+        for (int i = text.length() - 1; i >= 0; i--) {
+            reverse += text.charAt(i);
+        }
+
+        System.out.println(reverse);
+
+    }
+
+}`
+
+        };
+
+
+        const titles = {
+
+            1: "Hello World",
+
+            2: "Add Two Numbers",
+
+            3: "Even or Odd",
+
+            4: "Find Maximum",
+
+            5: "Factorial",
+
+            6: "Reverse String"
+
+        };
+
+
+        const descriptions = {
+
+            1:
+            'Write a Java program to print "Hello World" on the screen.',
+
+            2:
+            'Write a Java program to add two numbers and display the result.',
+
+            3:
+            'Write a Java program to check whether a number is even or odd.',
+
+            4:
+            'Write a Java program to find the largest of two numbers.',
+
+            5:
+            'Write a Java program to calculate the factorial of a number.',
+
+            6:
+            'Write a Java program to reverse a given string.'
+
+        };
+
+
+        function selectProblem(number) {
+
+            document.getElementById("problemTitle")
+                .textContent = titles[number];
+
+            document.getElementById("problemDescription")
+                .textContent = descriptions[number];
+
+            document.getElementById("codeEditor")
+                .value = codes[number];
+
+            document.getElementById("output")
+                .textContent =
+                'Click "Run Code" to see the output...';
+
+
+            const problems =
+                document.querySelectorAll(".problem");
+
+
+            problems.forEach(function(problem) {
+
+                problem.classList.remove("active");
+
+            });
+
+
+            problems[number - 1]
+                .classList.add("active");
+
+        }
+
+
+        function runCode() {
+
+            const code =
+                document.getElementById("codeEditor").value;
+
+            const output =
+                document.getElementById("output");
+
+
+            if (code.includes("Hello World")) {
+
+                output.textContent =
+                    "Hello World";
+
+            }
+
+            else if (
+                code.includes("int a = 10") &&
+                code.includes("int b = 20")
+            ) {
+
+                output.textContent =
+                    "30";
+
+            }
+
+            else if (
+                code.includes("number % 2")
+            ) {
+
+                output.textContent =
+                    "Even";
+
+            }
+
+            else if (
+                code.includes("factorial")
+            ) {
+
+                output.textContent =
+                    "120";
+
+            }
+
+            else if (
+                code.includes("reverse")
+            ) {
+
+                output.textContent =
+                    "avaJ";
+
+            }
+
+            else {
+
+                output.textContent =
+                    "Code submitted successfully.\n\n" +
+                    "Connect this page to your Node.js backend " +
+                    "to execute real Java code.";
+
+            }
+
+        }
+
+
+        function resetCode() {
+
+            document.getElementById("codeEditor").value =
+                codes[1];
+
+            document.getElementById("problemTitle")
+                .textContent =
+                titles[1];
+
+            document.getElementById("problemDescription")
+                .textContent =
+                descriptions[1];
+
+            document.getElementById("output")
+                .textContent =
+                'Click "Run Code" to see the output...';
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
+

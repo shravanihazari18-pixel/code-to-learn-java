@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes & Objects - Code to Learn Java</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8fafc;
+            color: #172554;
+            line-height: 1.7;
+        }
+
+        nav {
+            background: #172554;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #facc15;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        nav a:hover {
+            color: #facc15;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .lesson-header {
+            background: #172554;
+            color: white;
+            padding: 35px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        .lesson-header span {
+            color: #facc15;
+            font-weight: bold;
+        }
+
+        .lesson-header h1 {
+            margin: 10px 0;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            margin-bottom: 22px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            color: #2563eb;
+            margin-bottom: 12px;
+        }
+
+        code {
+            background: #e2e8f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        pre {
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-top: 15px;
+        }
+
+        .check {
+            background: #eff6ff;
+            border-left: 5px solid #2563eb;
+            padding: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            text-decoration: none;
+            border: none;
+            padding: 13px 22px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .back {
+            background: #e2e8f0;
+            color: #172554;
+        }
+
+        .complete {
+            background: #facc15;
+            color: #172554;
+            font-weight: bold;
+        }
+
+        .next {
+            background: #2563eb;
+            color: white;
+        }
+
+        #message {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #15803d;
+        }
+
+        footer {
+            background: #172554;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">Code to Learn – Java</div>
+
+    <div>
+        <a href="../index.html">Home</a>
+        <a href="../learn.html">Learn</a>
+        <a href="../practice.html">Practice</a>
+        <a href="../quiz.html">Quiz</a>
+        <a href="../login.html">Login</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="lesson-header">
+        <span>Lesson 7 • Intermediate</span>
+        <h1>Classes & Objects</h1>
+        <p>Learn how Java uses classes and objects to create real-world programs.</p>
+    </div>
+
+    <div class="card">
+        <h2>What is a Class?</h2>
+
+        <p>
+            A <strong>class</strong> is a blueprint or template used to create objects.
+            It can contain variables and methods.
+        </p>
+
+        <p>
+            For example, a <code>Student</code> class can contain a student's name,
+            age, and methods to display student information.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>What is an Object?</h2>
+
+        <p>
+            An <strong>object</strong> is an instance of a class.
+            We create objects using the <code>new</code> keyword.
+        </p>
+
+        <pre><code>Student student1 = new Student();</code></pre>
+    </div>
+
+    <div class="card">
+        <h2>Creating a Class</h2>
+
+        <pre><code>class Student {
+
+    String name;
+    int age;
+
+    void display() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}</code></pre>
+    </div>
+
+    <div class="card">
+        <h2>Creating an Object</h2>
+
+        <pre><code>public class Main {
+
+    public static void main(String[] args) {
+
+        Student student1 = new Student();
+
+        student1.name = "Rahul";
+        student1.age = 20;
+
+        student1.display();
+    }
+}</code></pre>
+
+        <p><strong>Output:</strong></p>
+
+        <pre><code>Name: Rahul
+Age: 20</code></pre>
+    </div>
+
+    <div class="card">
+        <h2>Important Concepts</h2>
+
+        <ul>
+            <li><strong>Class:</strong> Blueprint for objects.</li>
+            <li><strong>Object:</strong> Instance of a class.</li>
+            <li><strong>Variable:</strong> Stores data inside a class.</li>
+            <li><strong>Method:</strong> Performs an action.</li>
+            <li><strong>new:</strong> Creates an object.</li>
+        </ul>
+    </div>
+
+    <div class="card check">
+        <h2>Quick Check</h2>
+
+        <p>
+            Which keyword is commonly used to create an object in Java?
+        </p>
+
+        <p>
+            <strong>Answer:</strong> <code>new</code>
+        </p>
+    </div>
+
+    <div class="buttons">
+        <a href="arrays.html" class="btn back">← Previous Lesson</a>
+
+        <button class="btn complete" onclick="completeLesson()">
+            Mark as Completed
+        </button>
+
+        <a href="inheritance.html" class="btn next">
+            Next Lesson →
+        </a>
+    </div>
+
+    <div id="message"></div>
+
+</div>
+
+<footer>
+    <p>© 2026 Code to Learn – Java</p>
+</footer>
+
+<script>
+    function completeLesson() {
+        localStorage.setItem("lesson7Completed", "true");
+
+        document.getElementById("message").textContent =
+            "✓ Lesson 7 completed successfully!";
+    }
+</script>
+
+</body>
+</html>
+
+
